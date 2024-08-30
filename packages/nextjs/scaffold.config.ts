@@ -1,5 +1,28 @@
 import * as chains from "viem/chains";
 
+export const galadriel: chains.Chain = {
+  id: 696969, // Replace with your chain's ID
+  name: "Galadriel", // Replace with your chain's name
+  nativeCurrency: {
+    name: "Custom Token",
+    symbol: "GAL",
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: {
+      http: ["https://devnet.galadriel.com"], // Replace with your RPC URL
+      // webSocket: ["wss://ws.galadriel.com"], // Optional: Replace with your WebSocket URL
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: "Custom Scan",
+      url: "https://explorer.galadriel.com",
+    },
+  },
+  testnet: true, // Set to false if it's a mainnet
+};
+
 export type ScaffoldConfig = {
   targetNetworks: readonly chains.Chain[];
   pollingInterval: number;
@@ -10,7 +33,7 @@ export type ScaffoldConfig = {
 
 const scaffoldConfig = {
   // The networks on which your DApp is live
-  targetNetworks: [chains.hardhat],
+  targetNetworks: [chains.hardhat, galadriel],
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect if you only target the local network (default is 4000)
