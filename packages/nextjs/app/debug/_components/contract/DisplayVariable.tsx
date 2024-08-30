@@ -5,7 +5,7 @@ import { InheritanceTooltip } from "./InheritanceTooltip";
 import { displayTxResult } from "./utilsDisplay";
 import { Abi, AbiFunction } from "abitype";
 import { Address } from "viem";
-import { useReadContract } from "wagmi";
+import { useAccount, useReadContract } from "wagmi";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { useAnimationConfig } from "~~/hooks/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
@@ -26,6 +26,7 @@ export const DisplayVariable = ({
   abi,
   inheritedFrom,
 }: DisplayVariableProps) => {
+  const { address: connectedAddress } = useAccount();
   const { targetNetwork } = useTargetNetwork();
 
   const {
@@ -37,6 +38,7 @@ export const DisplayVariable = ({
     address: contractAddress,
     functionName: abiFunction.name,
     abi: abi,
+    account: connectedAddress,
     chainId: targetNetwork.id,
     query: {
       retry: false,

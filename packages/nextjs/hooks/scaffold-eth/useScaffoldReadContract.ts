@@ -27,6 +27,7 @@ export const useScaffoldReadContract = <
   contractName,
   functionName,
   args,
+  account,
   ...readConfig
 }: UseScaffoldReadConfig<TContractName, TFunctionName>) => {
   const { data: deployedContract } = useDeployedContractInfo(contractName);
@@ -41,6 +42,7 @@ export const useScaffoldReadContract = <
     address: deployedContract?.address,
     abi: deployedContract?.abi,
     args,
+    account,
     ...(readContractConfig as any),
     query: {
       enabled: !Array.isArray(args) || !args.some(arg => arg === undefined),
