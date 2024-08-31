@@ -3,6 +3,7 @@ interface Simulation {
   content: string;
   isCompleted: boolean;
   botAddress: string;
+  chatId: string;
 }
 
 export const SimulationItem = ({
@@ -61,6 +62,7 @@ export const SimulationItem = ({
       <div>
         <span className={simulation.isCompleted ? "line-through" : ""}>{simulation.content}</span>
         <span className="ml-2 text-sm text-gray-500">Bot Address: {simulation.botAddress}</span>
+        <span className="ml-2 text-sm text-gray-500">Chat ID: {simulation.chatId}</span>
       </div>
       <div>
         <button onClick={handleToggle} className="btn btn-sm btn-primary mr-2">

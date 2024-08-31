@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import { createGroupChat } from "../utils/xmtp";
 
 // In-memory storage for simulations
-const simulations: { id: number; content: string; isCompleted: boolean; botAddress: string }[] = [];
+const simulations: { id: number; content: string; isCompleted: boolean; botAddress: string; chatId: string }[] = [];
 
 export async function GET() {
   return NextResponse.json(simulations);
@@ -11,7 +12,7 @@ export async function POST(request: Request) {
   const { content } = await request.json();
 
   try {
-    // Make a POST request to the group-chats API
+    // Create bot instance that will run in the XMTP group, and the chat in Galadriel
     const response = await fetch("http://localhost:3001/group-chats", {
       method: "POST",
       headers: {
@@ -26,11 +27,15 @@ export async function POST(request: Request) {
 
     const groupChatData = await response.json();
 
+    // Create the XMTP group chat
+    const xmtpChat = await createGroupChat("0x361fd8769c1295Eb75F4E8f51015bc074Eb937B2");
+
     const newSimulation = {
       id: simulations.length + 1,
       content,
       isCompleted: false,
       botAddress: groupChatData.botAddress,
+      chatId: xmtpChat.id,
     };
     simulations.push(newSimulation);
 

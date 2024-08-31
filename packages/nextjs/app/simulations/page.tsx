@@ -9,6 +9,7 @@ interface Simulation {
   content: string;
   isCompleted: boolean;
   botAddress: string;
+  chatId: string;
 }
 
 const SimulationListPage = () => {
