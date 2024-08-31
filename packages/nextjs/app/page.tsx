@@ -64,6 +64,9 @@ const Home: NextPage = () => {
             <Link href="/todos" passHref className="link">
               Todo List
             </Link>
+            <Link href="/simulations" passHref className="link">
+              Simulations List
+            </Link>
           </div>
         </div>
       </div>
