@@ -24,6 +24,9 @@ const nextConfig = {
     config.externals.push("@xmtp/mls-client");
     return config;
   },
+  images: {
+    domains: ["lime-odd-deer-974.mypinata.cloud"],
+  },
 };
 
 module.exports = nextConfig;

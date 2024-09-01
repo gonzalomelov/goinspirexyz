@@ -2,14 +2,24 @@ import { NextResponse } from "next/server";
 import { createGroupChat } from "../utils/xmtp";
 
 // In-memory storage for simulations
-const simulations: { id: number; content: string; isCompleted: boolean; botAddress: string; chatId: string }[] = [];
+const simulations: {
+  id: number;
+  target: string;
+  situation: string;
+  privateInfo: string;
+  groupTitle: string;
+  groupImage: string;
+  isCompleted: boolean;
+  botAddress: string;
+  chatId: string;
+}[] = [];
 
 export async function GET() {
   return NextResponse.json(simulations);
 }
 
 export async function POST(request: Request) {
-  const { content } = await request.json();
+  const { target, situation, privateInfo, groupTitle, groupImage } = await request.json();
 
   try {
     // Create bot instance that will run in the XMTP group, and the chat in Galadriel
@@ -18,7 +28,13 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content }), // You might need to adjust this based on what the API expects
+      body: JSON.stringify({
+        target,
+        situation,
+        privateInfo,
+        groupTitle,
+        groupImage,
+      }),
     });
 
     if (!response.ok) {
@@ -32,7 +48,11 @@ export async function POST(request: Request) {
 
     const newSimulation = {
       id: simulations.length + 1,
-      content,
+      target,
+      situation,
+      privateInfo,
+      groupTitle,
+      groupImage,
       isCompleted: false,
       botAddress: groupChatData.botAddress,
       chatId: xmtpChat.id,
@@ -61,12 +81,20 @@ export async function POST(request: Request) {
 }
 
 export async function PUT(request: Request) {
-  const { id, content, isCompleted } = await request.json();
+  const { id, target, situation, privateInfo, groupTitle, groupImage, isCompleted } = await request.json();
   const simulationIndex = simulations.findIndex(simulation => simulation.id === id);
   if (simulationIndex === -1) {
     return NextResponse.json({ error: "Simulation not found" }, { status: 404 });
   }
-  simulations[simulationIndex] = { ...simulations[simulationIndex], content, isCompleted };
+  simulations[simulationIndex] = {
+    ...simulations[simulationIndex],
+    target,
+    situation,
+    privateInfo,
+    groupTitle,
+    groupImage,
+    isCompleted,
+  };
   return NextResponse.json(simulations[simulationIndex]);
 }
 

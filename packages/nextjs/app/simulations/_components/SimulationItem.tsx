@@ -1,6 +1,13 @@
+import Image from "next/image";
+import { Address } from "~~/components/scaffold-eth";
+
 interface Simulation {
   id: number;
-  content: string;
+  target: string;
+  situation: string;
+  privateInfo: string;
+  groupTitle: string;
+  groupImage: string;
   isCompleted: boolean;
   botAddress: string;
   chatId: string;
@@ -58,20 +65,37 @@ export const SimulationItem = ({
   };
 
   return (
-    <div className="flex items-center justify-between p-2 border rounded">
-      <div>
-        <span className={simulation.isCompleted ? "line-through" : ""}>{simulation.content}</span>
-        <span className="ml-2 text-sm text-gray-500">Bot Address: {simulation.botAddress}</span>
-        <span className="ml-2 text-sm text-gray-500">Chat ID: {simulation.chatId}</span>
-      </div>
-      <div>
-        <button onClick={handleToggle} className="btn btn-sm btn-primary mr-2">
+    <tr>
+      <td>{simulation.id}</td>
+      <td>
+        <Image src={simulation.groupImage} alt="Group" width={24} height={24} className="inline-block rounded-full" />
+      </td>
+      <td className={`text-base ${simulation.isCompleted ? "line-through text-gray-500" : "text-gray-900"}`}>
+        <div className="whitespace-normal">{simulation.situation}</div>
+      </td>
+      <td>
+        <Address address={simulation.target} />
+      </td>
+      <td>
+        <Address address={simulation.botAddress} />
+      </td>
+      <td>{simulation.chatId}</td>
+      <td>
+        <button
+          onClick={handleToggle}
+          className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+        >
           {simulation.isCompleted ? "Undo" : "Complete"}
         </button>
-        <button onClick={handleDelete} className="btn btn-sm btn-error">
+      </td>
+      <td>
+        <button
+          onClick={handleDelete}
+          className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700"
+        >
           Delete
         </button>
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 };

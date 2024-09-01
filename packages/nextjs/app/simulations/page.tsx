@@ -2,11 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { SimulationItem } from "./_components/SimulationItem";
+import { SimulationTable } from "./_components/SimulationTable";
 
 interface Simulation {
   id: number;
-  content: string;
+  target: string;
+  situation: string;
+  privateInfo: string;
+  groupTitle: string;
+  groupImage: string;
   isCompleted: boolean;
   botAddress: string;
   chatId: string;
@@ -50,11 +54,7 @@ const SimulationListPage = () => {
       <Link href="/simulations/create" className="btn btn-primary mb-4">
         Create New Simulation
       </Link>
-      <div className="space-y-2">
-        {simulations.map(simulation => (
-          <SimulationItem key={simulation.id} simulation={simulation} onDelete={handleDelete} onToggle={handleToggle} />
-        ))}
-      </div>
+      <SimulationTable simulations={simulations} onDelete={handleDelete} onToggle={handleToggle} />
     </div>
   );
 };
