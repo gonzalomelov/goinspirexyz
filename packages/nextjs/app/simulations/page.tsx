@@ -50,9 +50,9 @@ const SimulationListPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">My Simulation List</h1>
+      <h1 className="text-3xl font-bold mb-4">My Onchain Simulations</h1>
       <Link href="/simulations/create" className="btn btn-primary mb-4">
-        Create New Simulation
+        Create Onchain Simulation
       </Link>
       <SimulationTable simulations={simulations} onDelete={handleDelete} onToggle={handleToggle} />
     </div>
