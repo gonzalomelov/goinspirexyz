@@ -4,16 +4,16 @@ import { createWalletClient, http, toBytes } from "viem";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
 import { mainnet } from "viem/chains";
 
-// Function to send a message to a specific group
-async function sendMessageToGroup(client: Client, groupId: any, messageContent: string) {
-  const conversation = client.conversations.getConversationById(groupId);
-  if (!conversation) {
-    console.log(`No conversation found with ID: ${groupId}`);
-    return;
-  }
-  await conversation.send(messageContent);
-  console.log(`Message sent to group ${groupId}: ${messageContent}`);
-}
+// // Function to send a message to a specific group
+// async function sendMessageToGroup(client: Client, groupId: any, messageContent: string) {
+//   const conversation = client.conversations.getConversationById(groupId);
+//   if (!conversation) {
+//     console.log(`No conversation found with ID: ${groupId}`);
+//     return;
+//   }
+//   await conversation.send(messageContent);
+//   console.log(`Message sent to group ${groupId}: ${messageContent}`);
+// }
 
 // Function to create a wallet from a private key
 async function createWallet() {
@@ -99,7 +99,6 @@ async function createGroupConversation(
     groupDescription,
     groupImageUrlSquare,
   });
-  console.log(`Group "${groupName}" created with ID: ${conversation.id}`);
   return conversation;
 }
 
@@ -131,11 +130,18 @@ export async function createGroupChat(botAddress: string) {
   const groupName = "🖤🤍 Juve Fanatics 🤍🖤";
   const groupDescription = "Juve Fanatics Group";
   const groupImageUrlSquare = "https://cdn-icons-png.freepik.com/512/824/824724.png";
+  // const groupName = "All Things Blockchain ⛓️";
+  // const groupDescription = "All Things Blockchain ⛓️";
+  // const groupImageUrlSquare =
+  //   "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmREefCFq3A3jEoXf5wdDssXs653Lfoxsyht6Csc2P6zGN";
   const memberAddresses = [
     "0x372082138ea420eBe56078D73F0359D686A7E981", // Creator
-    "0x0D79E8F6A3F81420DDbFfaDAc4CD651335777a9D", // Bot
-    "0xC15947dF36FF2072fB04EC8F8A610A75cD249312", // Other XMTP iPhone 15 Pro Max
-    "0x39565722b24a34daAfb6b67A06eF82fCb829C205", // Target XMTP iPhone 15
+    "0xD372466Cf58590c86DE87073C5CeB33268Ee5937", // Other (Creator FIX) XMTP iPhone 15 Pro Max
+    "0xC05E75867e5e3a45E2ccF214e53A234E21dBF115", // Target (Bob)        XMTP iPhone 15
+    "0x0D79E8F6A3F81420DDbFfaDAc4CD651335777a9D", // LeadAgent
+    "0xeEE998Beb137A331bf47Aa5Fc366033906F1dB34", // TECH_AGENT_KEY
+    "0xE67b3617E9CbAf456977CA9d4b9beAb8944EFc37", // SOCIAL_AGENT_KEY
+    "0xfA568f302F93Ed732C88a8F1999dCe8e841E14EC", // DATA_AGENT_KEY
   ];
   const groupConversation = await createGroupConversation(
     client,
@@ -144,8 +150,9 @@ export async function createGroupChat(botAddress: string) {
     groupImageUrlSquare,
     memberAddresses,
   );
-  console.log("Group chat created successfully!");
+  console.log(`Group "${groupName}" created with id: ${groupConversation.id}`);
+
   // You can now use this conversation to send messages, etc.
-  await sendMessageToGroup(client, groupConversation.id, "Welcome to the group!");
+  // await sendMessageToGroup(client, groupConversation.id, "Welcome to the group!");
   return groupConversation;
 }

@@ -14,13 +14,13 @@ const examples = {
   example1: {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
     situation: "Buy Juventus Fan Token",
-    privateInfo: "Her last Juventus shirt came unstitched and she needs a new one",
+    privateInfo: "His previous Juventus shirt came apart, so he needs a new one",
     groupTitle: "🖤🤍 Juve Fanatics 🤍🖤",
     groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmeRGEqsFiNiJ4GJCHCWB54ww8sNJ1dGFXqrnxLhgsAU1m",
   },
   example2: {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
-    situation: "Buy Bored Ape NFT",
+    situation: "Buy a Bored Ape NFT",
     privateInfo: "Loves the apes at his local zoo",
     groupTitle: "All Things Blockchain ⛓️",
     groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmREefCFq3A3jEoXf5wdDssXs653Lfoxsyht6Csc2P6zGN",
@@ -28,11 +28,11 @@ const examples = {
 };
 
 const CreateSimulationPage = () => {
-  const [target, setTarget] = useState(examples.empty.target);
-  const [situation, setSituation] = useState(examples.empty.situation);
-  const [privateInfo, setPrivateInfo] = useState(examples.empty.privateInfo);
-  const [groupTitle, setGroupTitle] = useState(examples.empty.groupTitle);
-  const [groupImage, setGroupImage] = useState(examples.empty.groupImage);
+  const [target, setTarget] = useState(examples.example1.target);
+  const [situation, setSituation] = useState(examples.example1.situation);
+  const [privateInfo, setPrivateInfo] = useState(examples.example1.privateInfo);
+  const [groupTitle, setGroupTitle] = useState(examples.example1.groupTitle);
+  const [groupImage, setGroupImage] = useState(examples.example1.groupImage);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
