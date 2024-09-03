@@ -103,14 +103,11 @@ async function createGroupConversation(
 }
 
 export async function createGroupChat(
-  botAddress: string,
   groupName: string,
   groupDescription: string,
   groupImageUrlSquare: string,
   memberAddresses: string[],
 ) {
-  console.log("Creating group chat with bot address: ", botAddress);
-
   // Create a new wallet instance
   const wallet = await createWallet();
   // Set up the XMTP client with the wallet and database path
