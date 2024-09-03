@@ -8,8 +8,7 @@ interface Simulation {
   groupTitle: string;
   groupImage: string;
   isCompleted: boolean;
-  botAddress: string;
-  chatId: string;
+  groupId: string;
 }
 
 export const SimulationTable = ({
@@ -30,8 +29,7 @@ export const SimulationTable = ({
             <th>Group Title</th>
             <th>Situation</th>
             <th>Target</th>
-            <th>Bot Address</th>
-            <th>Chat ID</th>
+            <th>Group ID</th>
             <th>Actions</th>
             <th></th>
           </tr>

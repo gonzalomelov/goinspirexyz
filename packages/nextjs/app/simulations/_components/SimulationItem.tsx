@@ -9,8 +9,7 @@ interface Simulation {
   groupTitle: string;
   groupImage: string;
   isCompleted: boolean;
-  botAddress: string;
-  chatId: string;
+  groupId: string;
 }
 
 export const SimulationItem = ({
@@ -76,10 +75,7 @@ export const SimulationItem = ({
       <td>
         <Address address={simulation.target} />
       </td>
-      <td>
-        <Address address={simulation.botAddress} />
-      </td>
-      <td>{simulation.chatId}</td>
+      <td>{simulation.groupId}</td>
       <td>
         <button
           onClick={handleToggle}

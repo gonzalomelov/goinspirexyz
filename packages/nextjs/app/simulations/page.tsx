@@ -12,8 +12,7 @@ interface Simulation {
   groupTitle: string;
   groupImage: string;
   isCompleted: boolean;
-  botAddress: string;
-  chatId: string;
+  groupId: string;
 }
 
 const SimulationListPage = () => {

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 const examples = {
   empty: {
     target: "",
+    targetFirstName: "",
     situation: "",
     privateInfo: "",
     groupTitle: "",
@@ -13,13 +14,16 @@ const examples = {
   },
   example1: {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
+    targetFirstName: "Bob",
     situation: "Buy Juventus Fan Token",
-    privateInfo: "His previous Juventus shirt came apart, so he needs a new one",
+    privateInfo:
+      "He needs a new Juventus shirt as his previous one came apart, and having Fan Tokens gives you a discount to buy one.",
     groupTitle: "🖤🤍 Juve Fanatics 🤍🖤",
     groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmeRGEqsFiNiJ4GJCHCWB54ww8sNJ1dGFXqrnxLhgsAU1m",
   },
   example2: {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
+    targetFirstName: "Bob",
     situation: "Buy a Bored Ape NFT",
     privateInfo: "Loves the apes at his local zoo",
     groupTitle: "All Things Blockchain ⛓️",
@@ -29,6 +33,7 @@ const examples = {
 
 const CreateSimulationPage = () => {
   const [target, setTarget] = useState(examples.example1.target);
+  const [targetFirstName, setTargetFirstName] = useState(examples.example1.targetFirstName);
   const [situation, setSituation] = useState(examples.example1.situation);
   const [privateInfo, setPrivateInfo] = useState(examples.example1.privateInfo);
   const [groupTitle, setGroupTitle] = useState(examples.example1.groupTitle);
@@ -42,7 +47,7 @@ const CreateSimulationPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ target, situation, privateInfo, groupTitle, groupImage }),
+      body: JSON.stringify({ target, targetFirstName, situation, privateInfo, groupTitle, groupImage }),
     });
     if (response.ok) {
       router.push("/simulations");
@@ -66,6 +71,16 @@ const CreateSimulationPage = () => {
           />
         </div>
         <div>
+          <label className="block mb-2 text-sm font-medium text-gray-700">Target&apos;s First Name</label>
+          <input
+            type="text"
+            value={targetFirstName}
+            onChange={e => setTargetFirstName(e.target.value)}
+            placeholder={targetFirstName}
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
           <label className="block mb-2 text-sm font-medium text-gray-700">
             Situation (What are you trying to achieve?)
           </label>
@@ -73,7 +88,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={situation}
             onChange={e => setSituation(e.target.value)}
-            placeholder="Buy Bored Ape NFT"
+            placeholder={situation}
             className="input input-bordered w-full"
           />
         </div>
@@ -85,7 +100,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={privateInfo}
             onChange={e => setPrivateInfo(e.target.value)}
-            placeholder="Loves the apes at his local zoo"
+            placeholder={privateInfo}
             className="input input-bordered w-full"
           />
         </div>
@@ -95,7 +110,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={groupTitle}
             onChange={e => setGroupTitle(e.target.value)}
-            placeholder="All Things Blockchain ⛓️"
+            placeholder={privateInfo}
             className="input input-bordered w-full"
           />
         </div>
@@ -105,7 +120,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={groupImage}
             onChange={e => setGroupImage(e.target.value)}
-            placeholder="https://lime-odd-deer-974.mypinata.cloud/ipfs/QmREefCFq3A3jEoXf5wdDssXs653Lfoxsyht6Csc2P6zGN"
+            placeholder={groupImage}
             className="input input-bordered w-full"
           />
         </div>

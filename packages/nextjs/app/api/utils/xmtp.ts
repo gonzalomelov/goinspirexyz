@@ -102,7 +102,13 @@ async function createGroupConversation(
   return conversation;
 }
 
-export async function createGroupChat(botAddress: string) {
+export async function createGroupChat(
+  botAddress: string,
+  groupName: string,
+  groupDescription: string,
+  groupImageUrlSquare: string,
+  memberAddresses: string[],
+) {
   console.log("Creating group chat with bot address: ", botAddress);
 
   // Create a new wallet instance
@@ -126,23 +132,6 @@ export async function createGroupChat(botAddress: string) {
   // (async () => {
   //   await streamAndRespond(client);
   // })();
-  // Example usage of createGroupConversation
-  const groupName = "🖤🤍 Juve Fanatics 🤍🖤";
-  const groupDescription = "Juve Fanatics Group";
-  const groupImageUrlSquare = "https://cdn-icons-png.freepik.com/512/824/824724.png";
-  // const groupName = "All Things Blockchain ⛓️";
-  // const groupDescription = "All Things Blockchain ⛓️";
-  // const groupImageUrlSquare =
-  //   "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmREefCFq3A3jEoXf5wdDssXs653Lfoxsyht6Csc2P6zGN";
-  const memberAddresses = [
-    "0x372082138ea420eBe56078D73F0359D686A7E981", // Creator
-    "0x64161EE01D3Fba1994aC1d33983211B9704ddBeA", // Other (Creator FIX) XMTP iPhone 15 Pro Max
-    "0x1A37266CD5ABF45f7519e4A860907FBc9964a77E", // Target (Bob)        XMTP iPhone 15
-    botAddress, // LeadAgent
-    "0xeEE998Beb137A331bf47Aa5Fc366033906F1dB34", // TECH_AGENT_KEY
-    "0xE67b3617E9CbAf456977CA9d4b9beAb8944EFc37", // SOCIAL_AGENT_KEY
-    "0xfA568f302F93Ed732C88a8F1999dCe8e841E14EC", // DATA_AGENT_KEY
-  ];
   const groupConversation = await createGroupConversation(
     client,
     groupName,
