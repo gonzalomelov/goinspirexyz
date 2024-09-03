@@ -27,8 +27,8 @@ export async function POST(request: Request) {
     // Create the XMTP group conversation
     const xmtpChat = await createGroupChat(botAddress, groupTitle, situation, groupImage, [
       "0x372082138ea420eBe56078D73F0359D686A7E981", // Creator
-      "0x64161EE01D3Fba1994aC1d33983211B9704ddBeA", // Other (Creator FIX) XMTP iPhone 15 Pro Max
-      "0x1A37266CD5ABF45f7519e4A860907FBc9964a77E", // Target (Bob)        XMTP iPhone 15
+      "0x5B385D961CDD40a54356b72B0A86f8A8dA2f2A62", // Other (Creator FIX) XMTP iPhone 15 Pro Max
+      "0x0571dd6bbaBb4Dded78858302664CE3407DF35e0", // Target (Bob)        XMTP iPhone 15
       botAddress, // LeadAgent
       "0xeEE998Beb137A331bf47Aa5Fc366033906F1dB34", // TECH_AGENT_KEY
       "0xE67b3617E9CbAf456977CA9d4b9beAb8944EFc37", // SOCIAL_AGENT_KEY

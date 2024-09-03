@@ -32,12 +32,12 @@ const examples = {
 };
 
 const CreateSimulationPage = () => {
-  const [target, setTarget] = useState(examples.example1.target);
-  const [targetFirstName, setTargetFirstName] = useState(examples.example1.targetFirstName);
-  const [situation, setSituation] = useState(examples.example1.situation);
-  const [privateInfo, setPrivateInfo] = useState(examples.example1.privateInfo);
-  const [groupTitle, setGroupTitle] = useState(examples.example1.groupTitle);
-  const [groupImage, setGroupImage] = useState(examples.example1.groupImage);
+  const [target, setTarget] = useState(examples.empty.target);
+  const [targetFirstName, setTargetFirstName] = useState(examples.empty.targetFirstName);
+  const [situation, setSituation] = useState(examples.empty.situation);
+  const [privateInfo, setPrivateInfo] = useState(examples.empty.privateInfo);
+  const [groupTitle, setGroupTitle] = useState(examples.empty.groupTitle);
+  const [groupImage, setGroupImage] = useState(examples.empty.groupImage);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -76,7 +76,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={targetFirstName}
             onChange={e => setTargetFirstName(e.target.value)}
-            placeholder={targetFirstName}
+            placeholder={examples.example1.targetFirstName}
             className="input input-bordered w-full"
           />
         </div>
@@ -88,7 +88,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={situation}
             onChange={e => setSituation(e.target.value)}
-            placeholder={situation}
+            placeholder={examples.example1.situation}
             className="input input-bordered w-full"
           />
         </div>
@@ -100,7 +100,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={privateInfo}
             onChange={e => setPrivateInfo(e.target.value)}
-            placeholder={privateInfo}
+            placeholder={examples.example1.privateInfo}
             className="input input-bordered w-full"
           />
         </div>
@@ -110,7 +110,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={groupTitle}
             onChange={e => setGroupTitle(e.target.value)}
-            placeholder={privateInfo}
+            placeholder={examples.example1.groupTitle}
             className="input input-bordered w-full"
           />
         </div>
@@ -120,7 +120,7 @@ const CreateSimulationPage = () => {
             type="text"
             value={groupImage}
             onChange={e => setGroupImage(e.target.value)}
-            placeholder={groupImage}
+            placeholder={examples.example1.groupImage}
             className="input input-bordered w-full"
           />
         </div>
