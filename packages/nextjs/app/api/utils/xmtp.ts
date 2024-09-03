@@ -89,25 +89,18 @@ async function handleConversations(client: Client) {
 async function createGroupConversation(
   client: Client,
   groupName: string,
-  groupDescription: string,
   groupImageUrlSquare: string,
   memberAddresses: string[],
 ) {
   // Create the group conversation
   const conversation = await client.conversations.newConversation(memberAddresses, {
     groupName,
-    groupDescription,
     groupImageUrlSquare,
   });
   return conversation;
 }
 
-export async function createGroupChat(
-  groupName: string,
-  groupDescription: string,
-  groupImageUrlSquare: string,
-  memberAddresses: string[],
-) {
+export async function createGroupChat(groupName: string, groupImageUrlSquare: string, memberAddresses: string[]) {
   // Create a new wallet instance
   const wallet = await createWallet();
   // Set up the XMTP client with the wallet and database path
@@ -129,13 +122,7 @@ export async function createGroupChat(
   // (async () => {
   //   await streamAndRespond(client);
   // })();
-  const groupConversation = await createGroupConversation(
-    client,
-    groupName,
-    groupDescription,
-    groupImageUrlSquare,
-    memberAddresses,
-  );
+  const groupConversation = await createGroupConversation(client, groupName, groupImageUrlSquare, memberAddresses);
   console.log(`Group "${groupName}" created with id: ${groupConversation.id}`);
 
   // You can now use this conversation to send messages, etc.

@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     const groupMembers = [creatorAddress, otherAddress, targetAddress, ...agentAddresses];
 
     // Create the XMTP group conversation
-    const xmtpChat = await createGroupChat(groupTitle, situation, groupImage, groupMembers);
+    const xmtpChat = await createGroupChat(groupTitle, groupImage, groupMembers);
 
     // Create the chat in Galadriel
     // TODO: Move from group-chat to nextjs
