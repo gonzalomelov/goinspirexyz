@@ -4,20 +4,20 @@ import { createWalletClient, http, toBytes } from "viem";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
 import { mainnet } from "viem/chains";
 
-// // Function to send a message to a specific group
-// async function sendMessageToGroup(client: Client, groupId: any, messageContent: string) {
-//   const conversation = client.conversations.getConversationById(groupId);
-//   if (!conversation) {
-//     console.log(`No conversation found with ID: ${groupId}`);
-//     return;
-//   }
-//   await conversation.send(messageContent);
-//   console.log(`Message sent to group ${groupId}: ${messageContent}`);
-// }
+// Function to send a message to a specific group
+async function sendMessageToGroup(client: Client, groupId: any, messageContent: string) {
+  const conversation = client.conversations.getConversationById(groupId);
+  if (!conversation) {
+    console.log(`No conversation found with ID: ${groupId}`);
+    return;
+  }
+  await conversation.send(messageContent);
+  console.log(`Message sent to group ${groupId}: ${messageContent}`);
+}
 
 // Function to create a wallet from a private key
-async function createWallet() {
-  let key = process.env.KEY as `0x${string}`;
+async function createWallet(senderKey?: string) {
+  let key = senderKey as `0x${string}`;
   if (!key) {
     key = generatePrivateKey();
     console.error("KEY not set. Using random one. For using your own wallet , set the KEY environment variable.");
@@ -49,6 +49,7 @@ async function setupClient(wallet: any, config = {}) {
 // Function to register the client if not already registered
 async function registerClient(client: Client, wallet: any) {
   if (!client.isRegistered) {
+    console.log("Client is not registered");
     const signature = toBytes(
       await wallet.signMessage({
         message: client.signatureText,
@@ -56,6 +57,8 @@ async function registerClient(client: Client, wallet: any) {
     );
     client.addEcdsaSignature(signature);
     await client.registerIdentity();
+  } else {
+    console.log("Client already registered");
   }
 }
 
@@ -69,9 +72,9 @@ async function handleConversations(client: Client) {
     await conv.sync();
     const messages = await conv.messages();
     console.log(`Total messages in conversation: ${messages.length}`);
-    for (let i = 0; i < messages.length; i++) {
-      console.log(`Message ${i}: ${messages[i].content}`);
-    }
+    // for (let i = 0; i < messages.length; i++) {
+    //   console.log(`Message ${i}: ${messages[i].content}`);
+    // }
   }
 }
 // // Function to stream all messages and respond to new ones
@@ -85,7 +88,6 @@ async function handleConversations(client: Client) {
 //     }
 //   }
 // }
-
 async function createGroupConversation(
   client: Client,
   groupName: string,
@@ -100,32 +102,40 @@ async function createGroupConversation(
   return conversation;
 }
 
-export async function createGroupChat(groupName: string, groupImageUrlSquare: string, memberAddresses: string[]) {
-  // Create a new wallet instance
-  const wallet = await createWallet();
-  // Set up the XMTP client with the wallet and database path
+export async function setupXmtpClient(senderKey?: string) {
+  const wallet = await createWallet(senderKey);
+
   if (!fs.existsSync(`.cache`)) {
     fs.mkdirSync(`.cache`);
   }
+
   const client = await setupClient(wallet, {
     dbPath: `.cache/${wallet.account?.address}-${"prod"}`,
   });
-  // Register the client with the XMTP network if not already registered
+
   await registerClient(client, wallet);
-  // Handle existing conversations
+
   try {
     await handleConversations(client);
   } catch (error) {
     console.error("Error handling conversations:", error);
   }
-  // Run message streaming in a parallel thread to respond to new messages
-  // (async () => {
-  //   await streamAndRespond(client);
-  // })();
+
+  return client;
+}
+
+export async function createGroupChat(groupName: string, groupImageUrlSquare: string, memberAddresses: string[]) {
+  const client = await setupXmtpClient(process.env.KEY);
+
   const groupConversation = await createGroupConversation(client, groupName, groupImageUrlSquare, memberAddresses);
   console.log(`Group "${groupName}" created with id: ${groupConversation.id}`);
 
-  // You can now use this conversation to send messages, etc.
-  // await sendMessageToGroup(client, groupConversation.id, "Welcome to the group!");
   return groupConversation;
+}
+
+export async function sendMessage(senderKey: string, message: string, groupId: string) {
+  const client = await setupXmtpClient(senderKey);
+
+  await sendMessageToGroup(client, groupId, message);
+  console.log("Message sent: ", message);
 }
