@@ -127,7 +127,10 @@ export async function setupXmtpClient(senderKey?: string) {
 export async function createGroupChat(groupName: string, groupImageUrlSquare: string, memberAddresses: string[]) {
   const client = await setupXmtpClient(process.env.KEY);
 
-  const groupConversation = await createGroupConversation(client, groupName, groupImageUrlSquare, memberAddresses);
+  const botAddress = client.accountAddress;
+  const allMembers = [...new Set([...memberAddresses, botAddress])];
+
+  const groupConversation = await createGroupConversation(client, groupName, groupImageUrlSquare, allMembers);
   console.log(`Group "${groupName}" created with id: ${groupConversation.id}`);
 
   return groupConversation;

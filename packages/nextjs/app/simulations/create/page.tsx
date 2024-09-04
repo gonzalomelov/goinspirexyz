@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAccount } from "wagmi";
 
 const examples = {
   empty: {
@@ -39,6 +40,7 @@ const CreateSimulationPage = () => {
   const [groupTitle, setGroupTitle] = useState(examples.empty.groupTitle);
   const [groupImage, setGroupImage] = useState(examples.empty.groupImage);
   const router = useRouter();
+  const { address: connectedAddress } = useAccount();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,7 +49,15 @@ const CreateSimulationPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ target, targetFirstName, situation, privateInfo, groupTitle, groupImage }),
+      body: JSON.stringify({
+        target,
+        targetFirstName,
+        situation,
+        privateInfo,
+        groupTitle,
+        groupImage,
+        connectedAddress,
+      }),
     });
     if (response.ok) {
       router.push("/simulations");

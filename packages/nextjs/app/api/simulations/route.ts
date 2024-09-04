@@ -20,7 +20,8 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const { target, targetFirstName, situation, privateInfo, groupTitle, groupImage } = await request.json();
+  const { target, targetFirstName, situation, privateInfo, groupTitle, groupImage, connectedAddress } =
+    await request.json();
 
   try {
     // Create the chat in Galadriel
@@ -37,19 +38,21 @@ export async function POST(request: Request) {
         privateInfo,
         groupTitle,
         groupImage,
-        // groupId: xmtpChat.id,
+        connectedAddress,
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorBody = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, body: ${errorBody}`);
     }
 
     const groupChatData = await response.json();
 
     // const groupChatData = {
-    //   podName: "simulation-bot-pod",
-    //   message: "Hello, this is a test message from the bot",
+    //   message: "Group chat instance created",
+    //   workerId: '123123213',
+    //   groupId: '21312321',
     // };
 
     const newSimulation = {
