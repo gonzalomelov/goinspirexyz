@@ -7,6 +7,7 @@ const simulations: {
   id: number;
   target: string;
   targetFirstName: string;
+  targetFriend: string;
   situation: string;
   privateInfo: string;
   groupTitle: string;
@@ -20,7 +21,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const { target, targetFirstName, situation, privateInfo, groupTitle, groupImage, connectedAddress } =
+  const { target, targetFirstName, targetFriend, situation, privateInfo, groupTitle, groupImage, connectedAddress } =
     await request.json();
 
   try {
@@ -34,6 +35,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         target,
         targetFirstName,
+        targetFriend,
         situation,
         privateInfo,
         groupTitle,
@@ -59,6 +61,7 @@ export async function POST(request: Request) {
       id: simulations.length + 1,
       target,
       targetFirstName,
+      targetFriend,
       situation,
       privateInfo,
       groupTitle,
@@ -90,7 +93,7 @@ export async function POST(request: Request) {
 }
 
 export async function PUT(request: Request) {
-  const { id, target, targetFirstName, situation, privateInfo, groupTitle, groupImage, isCompleted } =
+  const { id, target, targetFirstName, targetFriend, situation, privateInfo, groupTitle, groupImage, isCompleted } =
     await request.json();
   const simulationIndex = simulations.findIndex(simulation => simulation.id === id);
   if (simulationIndex === -1) {
@@ -100,6 +103,7 @@ export async function PUT(request: Request) {
     ...simulations[simulationIndex],
     target,
     targetFirstName,
+    targetFriend,
     situation,
     privateInfo,
     groupTitle,

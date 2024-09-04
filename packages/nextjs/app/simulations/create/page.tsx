@@ -8,6 +8,7 @@ const examples = {
   empty: {
     target: "",
     targetFirstName: "",
+    targetFriend: "",
     situation: "",
     privateInfo: "",
     groupTitle: "",
@@ -16,6 +17,7 @@ const examples = {
   example1: {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
     targetFirstName: "Bob",
+    targetFriend: "Jack",
     situation: "Buy Juventus Fan Token",
     privateInfo:
       "He needs a new Juventus shirt as his previous one came apart, and having Fan Tokens gives you a discount to buy one.",
@@ -25,6 +27,7 @@ const examples = {
   example2: {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
     targetFirstName: "Bob",
+    targetFriend: "Jack",
     situation: "Buy a Bored Ape NFT",
     privateInfo: "Loves the apes at his local zoo",
     groupTitle: "All Things Blockchain ⛓️",
@@ -35,6 +38,7 @@ const examples = {
 const CreateSimulationPage = () => {
   const [target, setTarget] = useState(examples.empty.target);
   const [targetFirstName, setTargetFirstName] = useState(examples.empty.targetFirstName);
+  const [targetFriend, setTargetFriend] = useState(examples.empty.targetFriend);
   const [situation, setSituation] = useState(examples.empty.situation);
   const [privateInfo, setPrivateInfo] = useState(examples.empty.privateInfo);
   const [groupTitle, setGroupTitle] = useState(examples.empty.groupTitle);
@@ -52,6 +56,7 @@ const CreateSimulationPage = () => {
       body: JSON.stringify({
         target,
         targetFirstName,
+        targetFriend,
         situation,
         privateInfo,
         groupTitle,
@@ -87,6 +92,16 @@ const CreateSimulationPage = () => {
             value={targetFirstName}
             onChange={e => setTargetFirstName(e.target.value)}
             placeholder={examples.example1.targetFirstName}
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-2 text-sm font-medium text-gray-700">Target&apos;s Friend</label>
+          <input
+            type="text"
+            value={targetFriend}
+            onChange={e => setTargetFriend(e.target.value)}
+            placeholder={examples.example1.targetFriend}
             className="input input-bordered w-full"
           />
         </div>
