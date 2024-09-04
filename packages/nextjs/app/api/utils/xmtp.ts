@@ -21,7 +21,7 @@ async function createWallet(senderKey?: string) {
   if (!key) {
     key = generatePrivateKey();
     console.error("KEY not set. Using random one. For using your own wallet , set the KEY environment variable.");
-    console.log("Random private key: ", key);
+    // console.log("Random private key: ", key);
   }
 
   const account = privateKeyToAccount(key);
@@ -127,8 +127,9 @@ export async function setupXmtpClient(senderKey?: string) {
 export async function createGroupChat(groupName: string, groupImageUrlSquare: string, memberAddresses: string[]) {
   const client = await setupXmtpClient(process.env.KEY);
 
-  const botAddress = client.accountAddress;
-  const allMembers = [...new Set([...memberAddresses, botAddress])];
+  const allMembers = [...new Set([...memberAddresses, client.accountAddress])];
+
+  console.log("allMembers", allMembers);
 
   const groupConversation = await createGroupConversation(client, groupName, groupImageUrlSquare, allMembers);
   console.log(`Group "${groupName}" created with id: ${groupConversation.id}`);
