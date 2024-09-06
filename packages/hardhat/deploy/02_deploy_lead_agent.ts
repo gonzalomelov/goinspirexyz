@@ -1,5 +1,6 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
+import { LeadAgent } from "../typechain-types";
 
 const AGENT_PROMPT = "You are a helpful assistant";
 
@@ -59,6 +60,28 @@ const deployAll: DeployFunction = async function (hre: HardhatRuntimeEnvironment
   });
 
   console.log(`LeadAgent deployed to ${leadAgent.address}`);
+
+  console.log(`Verify LeadAgent, TechAgent, SocialAgent, DataAgent:`);
+  console.log(
+    `npx hardhat verify --network galadriel "${leadAgent.address}" "${oracleAddress}" "You are a helpful assistant" "${factoryAddresses.TechAgentFactory}" "${factoryAddresses.SocialAgentFactory}" "${factoryAddresses.DataAgentFactory}"`,
+  );
+  // Get the deployed agent addresses
+  const leadAgentContract = (await hre.ethers.getContract("LeadAgent")) as LeadAgent;
+  const techAgentAddress = await leadAgentContract.techAgent();
+  const socialAgentAddress = await leadAgentContract.socialAgent();
+  const dataAgentAddress = await leadAgentContract.dataAgent();
+
+  console.log(
+    `npx hardhat verify --network galadriel --contract contracts/BaseAgent.sol:BaseAgent "${techAgentAddress}" "${oracleAddress}"`,
+  );
+
+  console.log(
+    `npx hardhat verify --network galadriel --contract contracts/BaseAgent.sol:BaseAgent "${socialAgentAddress}" "${oracleAddress}"`,
+  );
+
+  console.log(
+    `npx hardhat verify --network galadriel --contract contracts/BaseAgent.sol:BaseAgent "${dataAgentAddress}" "${oracleAddress}"`,
+  );
 };
 
 export default deployAll;
