@@ -4,6 +4,39 @@ This README provides an overview of the smart contracts used in the project, whi
 
 ## Interaction
 
+### Deployment
+
+This diagram illustrates the deployment process of the LeadAgent contract and its interaction with the factory contracts to create specialized agents. It shows:
+1. The User deploying the LeadAgent with necessary parameters.
+2. The LeadAgent using TechAgentFactory, SocialAgentFactory, and DataAgentFactory to create respective specialized agents.
+3. Each factory returning the address of the newly created agent to the LeadAgent.
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant LeadAgent
+    participant Oracle
+    participant TechAgentFactory
+    participant SocialAgentFactory
+    participant DataAgentFactory
+
+    User->>LeadAgent: deploy(oracleAddress, systemPrompt, <br>techFactoryAddress, socialFactoryAddress, <br> dataFactoryAddress)
+    LeadAgent->>TechAgentFactory: createTechAgent(oracleAddress)
+    TechAgentFactory-->>LeadAgent: techAgentAddress
+    LeadAgent->>SocialAgentFactory: createSocialAgent(oracleAddress)
+    SocialAgentFactory-->>LeadAgent: socialAgentAddress
+    LeadAgent->>DataAgentFactory: createDataAgent(oracleAddress)
+    DataAgentFactory-->>LeadAgent: dataAgentAddress
+```
+
+### Initialization
+
+This diagram depicts the initialization process of the LeadAgent and specialized agents. It demonstrates:
+1. The User initiating the agent run with prompts for each agent type.
+2. The LeadAgent starting chats with each specialized agent (Tech, Social, and Data) using their respective prompts.
+3. The LeadAgent making an initial call to the Oracle with its own prompt.
+4. The Oracle responding to confirm the initialization.
+
 ```mermaid
 sequenceDiagram
     participant User
@@ -13,9 +46,32 @@ sequenceDiagram
     participant DataAgent
     participant Oracle
 
-    User->>LeadAgent: runAgent <br> ('You're a lead agent...', 5)
+    User->>LeadAgent: runAgent <br> ('You're a lead agent...', 5, <br> techAgentPrompt, socialAgentPrompt, dataAgentPrompt)
+    LeadAgent->>SocialAgent: startChat(socialAgentPrompt)
+    LeadAgent->>TechAgent: startChat(techAgentPrompt)
+    LeadAgent->>DataAgent: startChat(dataAgentPrompt)
     LeadAgent->>Oracle: createOpenAiLlmCall <br> ('You're a lead agent...')
     Oracle-->>LeadAgent: onOracleOpenAiLlmResponse(): 'OK'
+```
+
+### Usage
+
+This diagram showcases the typical usage flow of the system, including:
+1. A User sending a message to the LeadAgent.
+2. The LeadAgent forwarding the message to the Oracle for processing.
+3. The Oracle responding with a directive for a specific agent to act.
+4. The diagram then branches into three possible scenarios, showing how each specialized agent (Social, Tech, or Data) might respond:
+    - Each scenario involves the specialized agent communicating with the Oracle and then responding back to the LeadAgent.
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant LeadAgent
+    participant SocialAgent
+    participant TechAgent
+    participant DataAgent
+    participant Oracle
+
     User->>LeadAgent: sendMessage <br> ('Jack: Hey Bob, how are you?')
     LeadAgent->>Oracle: createOpenAiLlmCall() <br> ('Jack: Hey Bob, how are you?')
     Oracle-->>LeadAgent: onOracleOpenAiLlmResponse(): <br> 'SocialAgent do: "Say hello to Bob"'
