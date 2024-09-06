@@ -27,7 +27,7 @@ contract LeadAgent {
     }
 
     mapping(uint => AgentRun) public agentRuns;
-    uint private agentRunCount;
+    uint public agentRunCount;
 
     event AgentRunCreated(address indexed owner, uint indexed runId);
 
@@ -254,5 +254,26 @@ contract LeadAgent {
 
         // Continue the agent run by making another OpenAI LLM call
         IOracle(oracleAddress).createOpenAiLlmCall(runId, config);
+    }
+
+    // Add this new function to the LeadAgent contract
+    function getAgentRunsForOwner(address _owner) public view returns (AgentRun[] memory) {
+        uint count = 0;
+        for (uint i = 0; i < agentRunCount; i++) {
+            if (agentRuns[i].owner == _owner) {
+                count++;
+            }
+        }
+
+        AgentRun[] memory ownerRuns = new AgentRun[](count);
+        uint index = 0;
+        for (uint i = 0; i < agentRunCount; i++) {
+            if (agentRuns[i].owner == _owner) {
+                ownerRuns[index] = agentRuns[i];
+                index++;
+            }
+        }
+
+        return ownerRuns;
     }
 }
