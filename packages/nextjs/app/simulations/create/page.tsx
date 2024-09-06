@@ -61,7 +61,7 @@ const CreateSimulationPage = () => {
         privateInfo,
         groupTitle,
         groupImage,
-        connectedAddress,
+        creator: connectedAddress,
       }),
     });
     if (response.ok) {

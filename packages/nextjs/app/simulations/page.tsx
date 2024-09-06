@@ -3,49 +3,48 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SimulationTable } from "./_components/SimulationTable";
-
-interface Simulation {
-  id: number;
-  target: string;
-  situation: string;
-  privateInfo: string;
-  groupTitle: string;
-  groupImage: string;
-  isCompleted: boolean;
-  groupId: string;
-}
+import { useAccount } from "wagmi";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+import { Simulation } from "~~/types";
 
 const SimulationListPage = () => {
   const [simulations, setSimulations] = useState<Simulation[]>([]);
+  const { address } = useAccount();
 
-  const fetchSimulations = async () => {
-    try {
-      const response = await fetch("/api/simulations");
-      if (!response.ok) {
-        throw new Error("Failed to fetch simulations");
-      }
-      const data = await response.json();
-      setSimulations(data);
-    } catch (error) {
-      console.error("Error fetching simulations:", error);
-    }
-  };
+  const { data: agentRuns } = useScaffoldReadContract({
+    contractName: "LeadAgent",
+    functionName: "getAgentRunsForCreator",
+    args: [address],
+  });
 
   useEffect(() => {
+    const fetchSimulations = async () => {
+      if (!address || !agentRuns) return;
+
+      const simulationsData: Simulation[] = await Promise.all(
+        agentRuns.map(async (run, index) => {
+          return {
+            id: index,
+            owner: run.owner,
+            responsesCount: run.responsesCount,
+            max_iterations: run.max_iterations,
+            is_finished: run.is_finished,
+            target: run.target,
+            situation: run.situation,
+            privateInfo: run.privateInfo,
+            groupTitle: run.groupTitle,
+            groupImage: run.groupImage,
+            isCompleted: run.is_finished,
+            groupId: run.groupId,
+          };
+        }),
+      );
+
+      setSimulations(simulationsData);
+    };
+
     fetchSimulations();
-  }, []);
-
-  const handleDelete = async (id: number) => {
-    setSimulations(simulations.filter(simulation => simulation.id !== id));
-  };
-
-  const handleToggle = async (id: number) => {
-    setSimulations(
-      simulations.map(simulation =>
-        simulation.id === id ? { ...simulation, isCompleted: !simulation.isCompleted } : simulation,
-      ),
-    );
-  };
+  }, [address, agentRuns]);
 
   return (
     <div className="container mx-auto p-4">
@@ -53,7 +52,7 @@ const SimulationListPage = () => {
       <Link href="/simulations/create" className="btn btn-primary mb-4">
         Create
       </Link>
-      <SimulationTable simulations={simulations} onDelete={handleDelete} onToggle={handleToggle} />
+      <SimulationTable simulations={simulations} />
     </div>
   );
 };

@@ -20,6 +20,16 @@ contract LeadAgent {
 
     struct AgentRun {
         address owner;
+        address creator;
+        address target;
+        string targetFirstName;
+        string targetFriend;
+        string situation;
+        string publicInfo;
+        string privateInfo;
+        string groupTitle;
+        string groupImage;
+        string groupId;
         Message[] commands;
         uint responsesCount;
         uint8 max_iterations;
@@ -92,16 +102,36 @@ contract LeadAgent {
     }
 
     function runAgent(
-        string memory query, 
-        uint8 max_iterations, 
+        string memory query,
+        uint8 max_iterations,
         string memory techAgentPrompt,
         string memory socialAgentPrompt,
-        string memory dataAgentPrompt
+        string memory dataAgentPrompt,
+        address creator,
+        address target,
+        string memory targetFirstName,
+        string memory targetFriend,
+        string memory situation,
+        string memory publicInfo,
+        string memory privateInfo,
+        string memory groupTitle,
+        string memory groupImage,
+        string memory groupId
     ) public returns (uint) {
         uint currentId = agentRunCount;
         AgentRun storage run = agentRuns[currentId];
 
         run.owner = msg.sender;
+        run.creator = creator;
+        run.target = target;
+        run.targetFirstName = targetFirstName;
+        run.targetFriend = targetFriend;
+        run.situation = situation;
+        run.publicInfo = publicInfo;
+        run.privateInfo = privateInfo;
+        run.groupTitle = groupTitle;
+        run.groupImage = groupImage;
+        run.groupId = groupId;
         run.is_finished = false;
         run.responsesCount = 0;
         run.max_iterations = max_iterations;
@@ -257,23 +287,23 @@ contract LeadAgent {
     }
 
     // Add this new function to the LeadAgent contract
-    function getAgentRunsForOwner(address _owner) public view returns (AgentRun[] memory) {
+    function getAgentRunsForCreator(address _creator) public view returns (AgentRun[] memory) {
         uint count = 0;
         for (uint i = 0; i < agentRunCount; i++) {
-            if (agentRuns[i].owner == _owner) {
+            if (agentRuns[i].creator == _creator) {
                 count++;
             }
         }
 
-        AgentRun[] memory ownerRuns = new AgentRun[](count);
+        AgentRun[] memory creatorRuns = new AgentRun[](count);
         uint index = 0;
         for (uint i = 0; i < agentRunCount; i++) {
-            if (agentRuns[i].owner == _owner) {
-                ownerRuns[index] = agentRuns[i];
+            if (agentRuns[i].creator == _creator) {
+                creatorRuns[index] = agentRuns[i];
                 index++;
             }
         }
 
-        return ownerRuns;
+        return creatorRuns;
     }
 }

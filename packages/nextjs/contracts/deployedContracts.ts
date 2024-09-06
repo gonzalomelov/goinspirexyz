@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     DataAgentFactory: {
-      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      address: "0x67d269191c92Caf3cD7723F116c85e6E9bf55933",
       abi: [
         {
           inputs: [
@@ -32,7 +32,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      address: "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E",
       abi: [
         {
           inputs: [
@@ -144,6 +144,56 @@ const deployedContracts = {
               type: "address",
             },
             {
+              internalType: "address",
+              name: "creator",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "target",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "targetFirstName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "targetFriend",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "situation",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "publicInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "privateInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupTitle",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupImage",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupId",
+              type: "string",
+            },
+            {
               internalType: "uint256",
               name: "responsesCount",
               type: "uint256",
@@ -179,11 +229,11 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "_owner",
+              name: "_creator",
               type: "address",
             },
           ],
-          name: "getAgentRunsForOwner",
+          name: "getAgentRunsForCreator",
           outputs: [
             {
               components: [
@@ -191,6 +241,56 @@ const deployedContracts = {
                   internalType: "address",
                   name: "owner",
                   type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "creator",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "target",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "targetFirstName",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "targetFriend",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "situation",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "publicInfo",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "privateInfo",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "groupTitle",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "groupImage",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "groupId",
+                  type: "string",
                 },
                 {
                   components: [
@@ -446,6 +546,56 @@ const deployedContracts = {
               name: "dataAgentPrompt",
               type: "string",
             },
+            {
+              internalType: "address",
+              name: "creator",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "target",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "targetFirstName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "targetFriend",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "situation",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "publicInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "privateInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupTitle",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupImage",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupId",
+              type: "string",
+            },
           ],
           name: "runAgent",
           outputs: [
@@ -501,7 +651,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     PrevOpenAiChatGpt: {
-      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+      address: "0xc3e53F4d16Ae77Db1c982e75a937B9f60FE63690",
       abi: [
         {
           inputs: [
@@ -778,7 +928,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     SocialAgentFactory: {
-      address: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      address: "0xc5a5C42992dECbae36851359345FE25997F5C42d",
       abi: [
         {
           inputs: [
@@ -803,7 +953,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TechAgentFactory: {
-      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      address: "0x09635F643e140090A9A8Dcd712eD6285858ceBef",
       abi: [
         {
           inputs: [
@@ -828,7 +978,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TodoList: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",
       abi: [
         {
           anonymous: false,
@@ -976,7 +1126,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
       abi: [
         {
           inputs: [
@@ -1121,7 +1271,7 @@ const deployedContracts = {
   },
   696969: {
     DataAgentFactory: {
-      address: "0xEE1800557937fA878c16a4376BCd5E0fa4B4D8E6",
+      address: "0x4a920BACf82b372D80EE91cA95330298B1A32901",
       abi: [
         {
           inputs: [
@@ -1146,7 +1296,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0xAf4d6F7Fc3aF0C943736131330315F00793165Eb",
+      address: "0x2887A4d7CC6ED582a86b2702C8ED89b099B88aa9",
       abi: [
         {
           inputs: [
@@ -1258,6 +1408,56 @@ const deployedContracts = {
               type: "address",
             },
             {
+              internalType: "address",
+              name: "creator",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "target",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "targetFirstName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "targetFriend",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "situation",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "publicInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "privateInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupTitle",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupImage",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupId",
+              type: "string",
+            },
+            {
               internalType: "uint256",
               name: "responsesCount",
               type: "uint256",
@@ -1293,11 +1493,11 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "_owner",
+              name: "_creator",
               type: "address",
             },
           ],
-          name: "getAgentRunsForOwner",
+          name: "getAgentRunsForCreator",
           outputs: [
             {
               components: [
@@ -1305,6 +1505,56 @@ const deployedContracts = {
                   internalType: "address",
                   name: "owner",
                   type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "creator",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "target",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "targetFirstName",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "targetFriend",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "situation",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "publicInfo",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "privateInfo",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "groupTitle",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "groupImage",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "groupId",
+                  type: "string",
                 },
                 {
                   components: [
@@ -1560,6 +1810,56 @@ const deployedContracts = {
               name: "dataAgentPrompt",
               type: "string",
             },
+            {
+              internalType: "address",
+              name: "creator",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "target",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "targetFirstName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "targetFriend",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "situation",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "publicInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "privateInfo",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupTitle",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupImage",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "groupId",
+              type: "string",
+            },
           ],
           name: "runAgent",
           outputs: [
@@ -1615,7 +1915,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     PrevOpenAiChatGpt: {
-      address: "0x2f2da0ffA5017684c1aB06AB87a4F13E37A2Dedb",
+      address: "0x7c9fB3be4D2d279ee218471854305C54f804916c",
       abi: [
         {
           inputs: [
@@ -1892,7 +2192,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     SocialAgentFactory: {
-      address: "0x4f282c28161f98b072e6d875fe80bE82e92510fb",
+      address: "0xbC37eF69F299acaA32878611425F30581B3A8122",
       abi: [
         {
           inputs: [
@@ -1917,7 +2217,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TechAgentFactory: {
-      address: "0x0CC13bdBfC9300A6b7cD1E71863922661e67300C",
+      address: "0xA4aB4e7b30d5EE4650f02c11A0c9BFFA6def032b",
       abi: [
         {
           inputs: [
@@ -1942,7 +2242,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TodoList: {
-      address: "0xc1c5141F8B11fcC0e05912E2667f37C8feB2739c",
+      address: "0x5575bDac13ce43fB2B6F950754176f05C72b9794",
       abi: [
         {
           anonymous: false,
@@ -2090,7 +2390,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x220b3c0b64eB806Fe6cFD0FAa94A454A0cA804BC",
+      address: "0x66656cEC150C5bc1Dd16b8b1C4c913a60e5C5400",
       abi: [
         {
           inputs: [

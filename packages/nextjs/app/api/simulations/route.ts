@@ -16,12 +16,8 @@ const simulations: {
   groupId: string;
 }[] = [];
 
-export async function GET() {
-  return NextResponse.json(simulations);
-}
-
 export async function POST(request: Request) {
-  const { target, targetFirstName, targetFriend, situation, privateInfo, groupTitle, groupImage, connectedAddress } =
+  const { target, targetFirstName, targetFriend, situation, privateInfo, groupTitle, groupImage, creator } =
     await request.json();
 
   try {
@@ -40,7 +36,7 @@ export async function POST(request: Request) {
         privateInfo,
         groupTitle,
         groupImage,
-        connectedAddress,
+        creator,
       }),
     });
 
