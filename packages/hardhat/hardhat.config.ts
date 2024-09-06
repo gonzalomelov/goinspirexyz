@@ -126,6 +126,16 @@ const config: HardhatUserConfig = {
   // configuration for harhdat-verify plugin
   etherscan: {
     apiKey: `${etherscanApiKey}`,
+    customChains: [
+      {
+        network: "696969",
+        chainId: 696969,
+        urls: {
+          apiURL: "https://explorer.galadriel.com/api",
+          browserURL: "https://explorer.galadriel.com/",
+        },
+      },
+    ],
   },
   // configuration for etherscan-verify from hardhat-deploy plugin
   verify: {
