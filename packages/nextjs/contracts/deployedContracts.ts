@@ -773,7 +773,7 @@ const deployedContracts = {
   },
   696969: {
     DataAgentFactory: {
-      address: "0x34C228B9d634576d5D6d7C1F8B951f421362380c",
+      address: "0xEE1800557937fA878c16a4376BCd5E0fa4B4D8E6",
       abi: [
         {
           inputs: [
@@ -798,7 +798,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x2B944d38e179a6574269f34A8749695db3762Cb0",
+      address: "0xA26284DDb36aEd348446c791586c7763F0ADE081",
       abi: [
         {
           inputs: [
@@ -1196,7 +1196,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     PrevOpenAiChatGpt: {
-      address: "0xC9622687A6A65B1cFaA68bB933dfbFACF755e918",
+      address: "0x2f2da0ffA5017684c1aB06AB87a4F13E37A2Dedb",
       abi: [
         {
           inputs: [
@@ -1473,7 +1473,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     SocialAgentFactory: {
-      address: "0x0e899C9E298F10dEBAC0d52E6833E44231D0c4F3",
+      address: "0x4f282c28161f98b072e6d875fe80bE82e92510fb",
       abi: [
         {
           inputs: [
@@ -1498,7 +1498,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TechAgentFactory: {
-      address: "0xAF7D38DE3F45018F2D2E134Db71B6ac344136Fc0",
+      address: "0x0CC13bdBfC9300A6b7cD1E71863922661e67300C",
       abi: [
         {
           inputs: [
@@ -1523,7 +1523,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TodoList: {
-      address: "0x8f8cbc5eCCd5dd5FEB2f33AC41FaC4D7D601aFbA",
+      address: "0xc1c5141F8B11fcC0e05912E2667f37C8feB2739c",
       abi: [
         {
           anonymous: false,
@@ -1671,7 +1671,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x26e1b049a9a6384Dfe8247E7915f4e0f2e2f0bE4",
+      address: "0x220b3c0b64eB806Fe6cFD0FAa94A454A0cA804BC",
       abi: [
         {
           inputs: [
