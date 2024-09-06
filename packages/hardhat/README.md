@@ -8,9 +8,9 @@ This README provides an overview of the smart contracts used in the project, whi
 sequenceDiagram
     participant User
     participant LeadAgent
-    %% participant TechAgent
     participant SocialAgent
-    %% participant DataAgent
+    participant TechAgent
+    participant DataAgent
     participant Oracle
 
     User->>LeadAgent: runAgent <br> ('You're a lead agent...', 5)
