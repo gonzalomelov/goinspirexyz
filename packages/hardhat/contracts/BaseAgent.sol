@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-import "./EnhancedAnthropicChatGpt.sol";
+import "./EnhancedOpenAiChatGpt.sol";
 
-contract BaseAgent is EnhancedAnthropicChatGpt {
-    constructor(address initialOracleAddress) EnhancedAnthropicChatGpt(initialOracleAddress) {}
+contract BaseAgent is EnhancedOpenAiChatGpt {
+    constructor(address initialOracleAddress) EnhancedOpenAiChatGpt(initialOracleAddress) {}
 }
