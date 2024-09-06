@@ -73,7 +73,7 @@ const CreateSimulationPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Create Onchain Simulation</h1>
+      <h1 className="text-3xl font-bold mb-4">Create Onchain Inspirational Experience</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block mb-2 text-sm font-medium text-gray-700">Target (Who are you trying to target?)</label>
@@ -150,7 +150,7 @@ const CreateSimulationPage = () => {
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Create Simulation
+          Create
         </button>
       </form>
     </div>

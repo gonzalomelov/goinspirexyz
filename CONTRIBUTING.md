@@ -1,18 +1,18 @@
-# Welcome to gosolve.xyz Contributing Guide
+# Welcome to goinspire.xyz Contributing Guide
 
-Thank you for investing your time in contributing to gosolve.xyz!
+Thank you for investing your time in contributing to goinspire.xyz!
 
 This guide aims to provide an overview of the contribution workflow to help us make the contribution process effective for everyone involved.
 
 ## About the Project
 
-gosolve.xyz is a hackathon project built for ETHOnline 2024.
+goinspire.xyz is a hackathon project built for ETHOnline 2024.
 
 Read the [README](README.md) to get an overview of the project.
 
 ### Vision
 
-The goal of gosolve.xyz is to solve problems in group chats using onchain AI-driven simulations.
+The goal of goinspire.xyz is to inspire people to take positive actions in group chats using onchain AI-driven experiences.
 
 The repo can be forked to include integrations and more features, but we want to keep the master branch simple and minimal.
 

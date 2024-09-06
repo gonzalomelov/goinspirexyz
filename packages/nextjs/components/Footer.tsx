@@ -61,7 +61,7 @@ export const Footer = () => {
               </p>
               <a
                 className="flex justify-center items-center gap-1"
-                href="https://ethglobal.com/showcase/gosolve-xyz-yzvyj"
+                href="https://ethglobal.com/showcase/goinspire-xyz-yzvyj"
                 target="_blank"
                 rel="noreferrer"
               >
