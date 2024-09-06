@@ -1,6 +1,6 @@
 # Smart Contracts Overview
 
-This README provides an overview of the smart contracts used in the project, which implements an AI-powered agent system on the Ethereum blockchain.
+This README provides an overview of the smart contracts used in the project, which implements an AI-powered multi-agent system on the Galadriel blockchain.
 
 ## Interaction
 
