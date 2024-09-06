@@ -72,15 +72,15 @@ const deployAll: DeployFunction = async function (hre: HardhatRuntimeEnvironment
   const dataAgentAddress = await leadAgentContract.dataAgent();
 
   console.log(
-    `npx hardhat verify --network galadriel --contract contracts/BaseAgent.sol:BaseAgent "${techAgentAddress}" "${oracleAddress}"`,
+    `npx hardhat verify --network galadriel --contract contracts/TechAgent.sol:TechAgent "${techAgentAddress}" "${oracleAddress}"`,
   );
 
   console.log(
-    `npx hardhat verify --network galadriel --contract contracts/BaseAgent.sol:BaseAgent "${socialAgentAddress}" "${oracleAddress}"`,
+    `npx hardhat verify --network galadriel --contract contracts/SocialAgent.sol:SocialAgent "${socialAgentAddress}" "${oracleAddress}"`,
   );
 
   console.log(
-    `npx hardhat verify --network galadriel --contract contracts/BaseAgent.sol:BaseAgent "${dataAgentAddress}" "${oracleAddress}"`,
+    `npx hardhat verify --network galadriel --contract contracts/DataAgent.sol:DataAgent "${dataAgentAddress}" "${oracleAddress}"`,
   );
 };
 
