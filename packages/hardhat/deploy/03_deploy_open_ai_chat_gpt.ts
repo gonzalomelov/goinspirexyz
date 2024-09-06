@@ -15,7 +15,7 @@ const deployAll: DeployFunction = async function (hre: HardhatRuntimeEnvironment
 
   // Deploy OpenAiChatGpt
   console.log("Deploying OpenAiChatGpt...");
-  const OpenAiChatGpt = await deploy("OpenAiChatGpt", {
+  const OpenAiChatGpt = await deploy("PrevOpenAiChatGpt", {
     from: deployer,
     args: [oracleAddress],
     log: true,
