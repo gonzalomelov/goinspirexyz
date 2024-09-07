@@ -10,9 +10,9 @@
 
 ## 🌟 Key Features
 
-- 🤖 **AI-Driven Social Experiences**: Multiple AI bots manage group chat discussions, mimicking different specialists.
+- 🤖 **AI-Driven Social Experiences**: Multiple AI agents manage group chat discussions, mimicking different specialists.
 - 🎯 **Personalized Strategies**: Utilizes public and private data for tailored interactions.
-- 🔄 **Dynamic Interaction**: Bots update their responses based on real-time data.
+- 🔄 **Dynamic Interaction**: Agents update their responses based on real-time data.
 - 🔒 **Privacy Focused**: Integrated with Lit Protocol for secure conversations.
 
 ## 🛠 Tech Stack
@@ -59,7 +59,7 @@ Visit your app at: `http://localhost:3000`
 1. **Goal Setting**: Define an inspirational goal (e.g., motivating someone to join a marathon).
 2. **Verification**: Set up onchain verification for the experience.
 3. **Group Chat**: Create a chat with AI agents playing roles like motivational speakers, coaches, etc.
-4. **Guided Conversation**: AI bots collaborate to steer the discussion towards the desired outcome.
+4. **Guided Conversation**: AI agents collaborate to steer the discussion towards the desired outcome.
 5. **Outcome & Proof**: Achieve the goal and verify it with an onchain attestation (e.g., marathon POAP).
 
 ## 🤝 Contributing
