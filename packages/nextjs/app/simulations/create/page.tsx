@@ -18,31 +18,32 @@ const examples = {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
     targetFirstName: "Bob",
     targetFriend: "Jack",
-    situation: "Buy Juventus Fan Token",
-    privateInfo:
-      "He needs a new Juventus shirt as his previous one came apart, and having Fan Tokens gives you a discount to buy one.",
-    groupTitle: "🖤🤍 Juve Fanatics 🤍🖤",
-    groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmeRGEqsFiNiJ4GJCHCWB54ww8sNJ1dGFXqrnxLhgsAU1m",
+    situation:
+      "Donate to charity by sending 10 usdc to @charity.eth in a transaction directly within this chat using /send 10 usdc @charity.eth",
+    privateInfo: "He usually donates to charity but using GoFundMe",
+    groupTitle: "Give Love ❤️",
+    groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmWU41NsdaEQ8BGdgkMD3ktCAjbeKfyBsnUxuHFkTRDX1k",
   },
   example2: {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
     targetFirstName: "Bob",
     targetFriend: "Jack",
-    situation: "Buy a Bored Ape NFT",
-    privateInfo: "Loves the apes at his local zoo",
-    groupTitle: "All Things Blockchain ⛓️",
-    groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmREefCFq3A3jEoXf5wdDssXs653Lfoxsyht6Csc2P6zGN",
+    situation:
+      "Mint a World of Women NFT to give to charity and help women in need by minting directly within this chat using /mint 0x73a333cb82862d4f66f0154229755b184fb4f5b0 1",
+    privateInfo: "",
+    groupTitle: "All Things NFT ⛓️",
+    groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmWU41NsdaEQ8BGdgkMD3ktCAjbeKfyBsnUxuHFkTRDX1k",
   },
 };
 
 const CreateSimulationPage = () => {
-  const [target, setTarget] = useState(examples.empty.target);
-  const [targetFirstName, setTargetFirstName] = useState(examples.empty.targetFirstName);
-  const [targetFriend, setTargetFriend] = useState(examples.empty.targetFriend);
-  const [situation, setSituation] = useState(examples.empty.situation);
-  const [privateInfo, setPrivateInfo] = useState(examples.empty.privateInfo);
-  const [groupTitle, setGroupTitle] = useState(examples.empty.groupTitle);
-  const [groupImage, setGroupImage] = useState(examples.empty.groupImage);
+  const [target, setTarget] = useState(examples.example1.target);
+  const [targetFirstName, setTargetFirstName] = useState(examples.example1.targetFirstName);
+  const [targetFriend, setTargetFriend] = useState(examples.example1.targetFriend);
+  const [situation, setSituation] = useState(examples.example1.situation);
+  const [privateInfo, setPrivateInfo] = useState(examples.example1.privateInfo);
+  const [groupTitle, setGroupTitle] = useState(examples.example1.groupTitle);
+  const [groupImage, setGroupImage] = useState(examples.example1.groupImage);
   const router = useRouter();
   const { address: connectedAddress } = useAccount();
 
