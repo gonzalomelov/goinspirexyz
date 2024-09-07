@@ -36,6 +36,23 @@ contract LeadAgent {
         bool is_finished;
     }
 
+    struct AgentRunInfo {
+        address owner;
+        address creator;
+        address target;
+        string targetFirstName;
+        string targetFriend;
+        string situation;
+        string publicInfo;
+        string privateInfo;
+        string groupTitle;
+        string groupImage;
+        string groupId;
+        uint responsesCount;
+        uint8 max_iterations;
+        bool is_finished;
+    }
+
     mapping(uint => AgentRun) public agentRuns;
     uint public agentRunCount;
 
@@ -286,24 +303,38 @@ contract LeadAgent {
         IOracle(oracleAddress).createOpenAiLlmCall(runId, config);
     }
 
-    // Add this new function to the LeadAgent contract
-    function getAgentRunsForCreator(address _creator) public view returns (AgentRun[] memory) {
+    function getAgentRuns(address _creator) public view returns (AgentRunInfo[] memory) {
         uint count = 0;
         for (uint i = 0; i < agentRunCount; i++) {
-            if (agentRuns[i].creator == _creator) {
+            if (_creator == address(0) || agentRuns[i].creator == _creator) {
                 count++;
             }
         }
 
-        AgentRun[] memory creatorRuns = new AgentRun[](count);
+        AgentRunInfo[] memory filteredRuns = new AgentRunInfo[](count);
         uint index = 0;
         for (uint i = 0; i < agentRunCount; i++) {
-            if (agentRuns[i].creator == _creator) {
-                creatorRuns[index] = agentRuns[i];
+            if (_creator == address(0) || agentRuns[i].creator == _creator) {
+                filteredRuns[index] = AgentRunInfo({
+                    owner: agentRuns[i].owner,
+                    creator: agentRuns[i].creator,
+                    target: agentRuns[i].target,
+                    targetFirstName: agentRuns[i].targetFirstName,
+                    targetFriend: agentRuns[i].targetFriend,
+                    situation: agentRuns[i].situation,
+                    publicInfo: agentRuns[i].publicInfo,
+                    privateInfo: agentRuns[i].privateInfo,
+                    groupTitle: agentRuns[i].groupTitle,
+                    groupImage: agentRuns[i].groupImage,
+                    groupId: agentRuns[i].groupId,
+                    responsesCount: agentRuns[i].responsesCount,
+                    max_iterations: agentRuns[i].max_iterations,
+                    is_finished: agentRuns[i].is_finished
+                });
                 index++;
             }
         }
 
-        return creatorRuns;
+        return filteredRuns;
     }
 }

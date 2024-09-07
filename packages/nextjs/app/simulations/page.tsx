@@ -7,13 +7,30 @@ import { useAccount } from "wagmi";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 import { Simulation } from "~~/types";
 
+interface AgentRunInfo {
+  owner: string;
+  creator: string;
+  target: string;
+  targetFirstName: string;
+  targetFriend: string;
+  situation: string;
+  publicInfo: string;
+  privateInfo: string;
+  groupTitle: string;
+  groupImage: string;
+  groupId: string;
+  responsesCount: bigint;
+  max_iterations: number;
+  is_finished: boolean;
+}
+
 const SimulationListPage = () => {
   const [simulations, setSimulations] = useState<Simulation[]>([]);
   const { address } = useAccount();
 
   const { data: agentRuns } = useScaffoldReadContract({
     contractName: "LeadAgent",
-    functionName: "getAgentRunsForCreator",
+    functionName: "getAgentRuns",
     args: [address],
   });
 
@@ -22,7 +39,7 @@ const SimulationListPage = () => {
       if (!address || !agentRuns) return;
 
       const simulationsData: Simulation[] = await Promise.all(
-        agentRuns.map(async (run, index) => {
+        agentRuns.map(async (run: AgentRunInfo, index: number) => {
           return {
             id: index,
             owner: run.owner,

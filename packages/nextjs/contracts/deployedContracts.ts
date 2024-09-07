@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     DataAgentFactory: {
-      address: "0x67d269191c92Caf3cD7723F116c85e6E9bf55933",
+      address: "0x9d4454B023096f34B160D6B654540c56A1F81688",
       abi: [
         {
           inputs: [
@@ -32,7 +32,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E",
+      address: "0x5eb3Bc0a489C5A8288765d2336659EbCA68FCd00",
       abi: [
         {
           inputs: [
@@ -233,7 +233,7 @@ const deployedContracts = {
               type: "address",
             },
           ],
-          name: "getAgentRunsForCreator",
+          name: "getAgentRuns",
           outputs: [
             {
               components: [
@@ -293,23 +293,6 @@ const deployedContracts = {
                   type: "string",
                 },
                 {
-                  components: [
-                    {
-                      internalType: "string",
-                      name: "role",
-                      type: "string",
-                    },
-                    {
-                      internalType: "string",
-                      name: "content",
-                      type: "string",
-                    },
-                  ],
-                  internalType: "struct LeadAgent.Message[]",
-                  name: "commands",
-                  type: "tuple[]",
-                },
-                {
                   internalType: "uint256",
                   name: "responsesCount",
                   type: "uint256",
@@ -325,7 +308,7 @@ const deployedContracts = {
                   type: "bool",
                 },
               ],
-              internalType: "struct LeadAgent.AgentRun[]",
+              internalType: "struct LeadAgent.AgentRunInfo[]",
               name: "",
               type: "tuple[]",
             },
@@ -651,7 +634,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     PrevOpenAiChatGpt: {
-      address: "0xc3e53F4d16Ae77Db1c982e75a937B9f60FE63690",
+      address: "0x36C02dA8a0983159322a80FFE9F24b1acfF8B570",
       abi: [
         {
           inputs: [
@@ -928,7 +911,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     SocialAgentFactory: {
-      address: "0xc5a5C42992dECbae36851359345FE25997F5C42d",
+      address: "0x8f86403A4DE0BB5791fa46B8e795C547942fE4Cf",
       abi: [
         {
           inputs: [
@@ -953,7 +936,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TechAgentFactory: {
-      address: "0x09635F643e140090A9A8Dcd712eD6285858ceBef",
+      address: "0x0E801D84Fa97b50751Dbf25036d067dCf18858bF",
       abi: [
         {
           inputs: [
@@ -978,7 +961,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TodoList: {
-      address: "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",
+      address: "0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf",
       abi: [
         {
           anonymous: false,
@@ -1126,7 +1109,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
+      address: "0x4826533B4897376654Bb4d4AD88B7faFD0C98528",
       abi: [
         {
           inputs: [
@@ -1271,7 +1254,7 @@ const deployedContracts = {
   },
   696969: {
     DataAgentFactory: {
-      address: "0x4a920BACf82b372D80EE91cA95330298B1A32901",
+      address: "0xE92B718dDB54aB6613e0dA0511fD3D756A0E3c2d",
       abi: [
         {
           inputs: [
@@ -1296,7 +1279,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x2887A4d7CC6ED582a86b2702C8ED89b099B88aa9",
+      address: "0x72645ff40fBB78f369789973F38f0686f407B3FA",
       abi: [
         {
           inputs: [
@@ -1497,7 +1480,7 @@ const deployedContracts = {
               type: "address",
             },
           ],
-          name: "getAgentRunsForCreator",
+          name: "getAgentRuns",
           outputs: [
             {
               components: [
@@ -1557,23 +1540,6 @@ const deployedContracts = {
                   type: "string",
                 },
                 {
-                  components: [
-                    {
-                      internalType: "string",
-                      name: "role",
-                      type: "string",
-                    },
-                    {
-                      internalType: "string",
-                      name: "content",
-                      type: "string",
-                    },
-                  ],
-                  internalType: "struct LeadAgent.Message[]",
-                  name: "commands",
-                  type: "tuple[]",
-                },
-                {
                   internalType: "uint256",
                   name: "responsesCount",
                   type: "uint256",
@@ -1589,7 +1555,7 @@ const deployedContracts = {
                   type: "bool",
                 },
               ],
-              internalType: "struct LeadAgent.AgentRun[]",
+              internalType: "struct LeadAgent.AgentRunInfo[]",
               name: "",
               type: "tuple[]",
             },
@@ -1915,7 +1881,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     PrevOpenAiChatGpt: {
-      address: "0x7c9fB3be4D2d279ee218471854305C54f804916c",
+      address: "0x193d8645aAa7F499351e9Efe066BfdAa72EAa636",
       abi: [
         {
           inputs: [
@@ -2192,7 +2158,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     SocialAgentFactory: {
-      address: "0xbC37eF69F299acaA32878611425F30581B3A8122",
+      address: "0xaF7B6E3DCdE8BaD4643b88d6dCd953A72edD6e30",
       abi: [
         {
           inputs: [
@@ -2217,7 +2183,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TechAgentFactory: {
-      address: "0xA4aB4e7b30d5EE4650f02c11A0c9BFFA6def032b",
+      address: "0xD438b4245Bff99d112f637c155011F8066C9Efa9",
       abi: [
         {
           inputs: [
@@ -2242,7 +2208,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TodoList: {
-      address: "0x5575bDac13ce43fB2B6F950754176f05C72b9794",
+      address: "0x19005D86A17e701815Def4242d779d5A637e64A5",
       abi: [
         {
           anonymous: false,
@@ -2390,7 +2356,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x66656cEC150C5bc1Dd16b8b1C4c913a60e5C5400",
+      address: "0xA778159A811025756B5828b2F85cEaAC8b2a47F6",
       abi: [
         {
           inputs: [
