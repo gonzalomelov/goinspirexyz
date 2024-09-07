@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     DataAgentFactory: {
-      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      address: "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
       abi: [
         {
           inputs: [
@@ -32,7 +32,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      address: "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
       abi: [
         {
           inputs: [
@@ -634,7 +634,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     PrevOpenAiChatGpt: {
-      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+      address: "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
       abi: [
         {
           inputs: [
@@ -911,7 +911,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     SocialAgentFactory: {
-      address: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
       abi: [
         {
           inputs: [
@@ -936,7 +936,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TechAgentFactory: {
-      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
       abi: [
         {
           inputs: [
@@ -1254,7 +1254,7 @@ const deployedContracts = {
   },
   696969: {
     DataAgentFactory: {
-      address: "0xE92B718dDB54aB6613e0dA0511fD3D756A0E3c2d",
+      address: "0xaBa412404b671e0daA13D914e76AA2aEe69160f3",
       abi: [
         {
           inputs: [
@@ -1279,7 +1279,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x72645ff40fBB78f369789973F38f0686f407B3FA",
+      address: "0x4BCF1a6d120a5a6736ED1bf2e83d4A85ea880D77",
       abi: [
         {
           inputs: [
@@ -1881,7 +1881,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     PrevOpenAiChatGpt: {
-      address: "0x193d8645aAa7F499351e9Efe066BfdAa72EAa636",
+      address: "0xA92C62a89742662C18298C3685D588605d9eE667",
       abi: [
         {
           inputs: [
@@ -2158,7 +2158,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     SocialAgentFactory: {
-      address: "0xaF7B6E3DCdE8BaD4643b88d6dCd953A72edD6e30",
+      address: "0x5F5837B1419F81c537479C985887eeEB5A99D0D6",
       abi: [
         {
           inputs: [
@@ -2183,7 +2183,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     TechAgentFactory: {
-      address: "0xD438b4245Bff99d112f637c155011F8066C9Efa9",
+      address: "0xd1EBbAc7258063253adCf48ADCa878A75F5C8EDb",
       abi: [
         {
           inputs: [
