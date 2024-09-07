@@ -1,0 +1,6 @@
+[submodule "submodules/xmtp-group-chat"]
+	path = submodules/xmtp-group-chat
+	url = git@github.com:gonzalomelov/group-chat.git
+[submodule "submodules/landing"]
+	path = submodules/landing
+	url = git@github.com:gonzalomelov/goinspirexyz-landing.git
