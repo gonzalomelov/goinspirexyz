@@ -5,7 +5,7 @@ export interface Simulation {
   max_iterations: number;
   is_finished: boolean;
   target: string;
-  situation: string;
+  situation: "UsdcDonation" | "NftMint";
   privateInfo: string;
   groupTitle: string;
   groupImage: string;

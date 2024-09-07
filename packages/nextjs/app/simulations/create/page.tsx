@@ -18,8 +18,7 @@ const examples = {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
     targetFirstName: "Bob",
     targetFriend: "Jack",
-    situation:
-      "Donate to charity by sending 10 usdc to @charity.eth in a transaction directly within this chat using /send 10 usdc @charity.eth",
+    situation: "UsdcDonation", // "Donate to charity by sending 10 usdc to @charity.eth in a transaction directly within this chat using /send 10 usdc @charity.eth",
     privateInfo: "He usually donates to charity but using GoFundMe",
     groupTitle: "Give Love ❤️",
     groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmWU41NsdaEQ8BGdgkMD3ktCAjbeKfyBsnUxuHFkTRDX1k",
@@ -28,8 +27,7 @@ const examples = {
     target: "0x372082138ea420eBe56078D73F0359D686A7E981",
     targetFirstName: "Bob",
     targetFriend: "Jack",
-    situation:
-      "Mint a World of Women NFT to give to charity and help women in need by minting directly within this chat using /mint 0x73a333cb82862d4f66f0154229755b184fb4f5b0 1",
+    situation: "NftMint", // "Mint a World of Women NFT to give to charity and help women in need by minting directly within this chat using /mint 0x73a333cb82862d4f66f0154229755b184fb4f5b0 1",
     privateInfo: "",
     groupTitle: "All Things NFT ⛓️",
     groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmWU41NsdaEQ8BGdgkMD3ktCAjbeKfyBsnUxuHFkTRDX1k",
@@ -40,7 +38,9 @@ const CreateSimulationPage = () => {
   const [target, setTarget] = useState(examples.example1.target);
   const [targetFirstName, setTargetFirstName] = useState(examples.example1.targetFirstName);
   const [targetFriend, setTargetFriend] = useState(examples.example1.targetFriend);
-  const [situation, setSituation] = useState(examples.example1.situation);
+  const [situation, setSituation] = useState<"UsdcDonation" | "NftMint">(
+    examples.example1.situation as "UsdcDonation" | "NftMint",
+  );
   const [privateInfo, setPrivateInfo] = useState(examples.example1.privateInfo);
   const [groupTitle, setGroupTitle] = useState(examples.example1.groupTitle);
   const [groupImage, setGroupImage] = useState(examples.example1.groupImage);
@@ -110,13 +110,14 @@ const CreateSimulationPage = () => {
           <label className="block mb-2 text-sm font-medium text-gray-700">
             Situation (What are you trying to achieve?)
           </label>
-          <input
-            type="text"
+          <select
             value={situation}
-            onChange={e => setSituation(e.target.value)}
-            placeholder={examples.example1.situation}
-            className="input input-bordered w-full"
-          />
+            onChange={e => setSituation(e.target.value as "UsdcDonation" | "NftMint")}
+            className="select select-bordered w-full"
+          >
+            <option value="UsdcDonation">Donate USDC</option>
+            <option value="NftMint">Mint Charity NFT</option>
+          </select>
         </div>
         <div>
           <label className="block mb-2 text-sm font-medium text-gray-700">

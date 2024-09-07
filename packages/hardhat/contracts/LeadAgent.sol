@@ -18,13 +18,18 @@ contract LeadAgent {
         string content;
     }
 
+    enum Situation {
+        UsdcDonation,
+        NftMint
+    }
+
     struct AgentRun {
         address owner;
         address creator;
         address target;
         string targetFirstName;
         string targetFriend;
-        string situation;
+        Situation situation;
         string publicInfo;
         string privateInfo;
         string groupTitle;
@@ -42,7 +47,7 @@ contract LeadAgent {
         address target;
         string targetFirstName;
         string targetFriend;
-        string situation;
+        Situation situation;
         string publicInfo;
         string privateInfo;
         string groupTitle;
@@ -128,7 +133,7 @@ contract LeadAgent {
         address target,
         string memory targetFirstName,
         string memory targetFriend,
-        string memory situation,
+        Situation situation,
         string memory publicInfo,
         string memory privateInfo,
         string memory groupTitle,

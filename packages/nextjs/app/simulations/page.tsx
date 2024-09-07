@@ -13,7 +13,7 @@ interface AgentRunInfo {
   target: string;
   targetFirstName: string;
   targetFriend: string;
-  situation: string;
+  situation: number;
   publicInfo: string;
   privateInfo: string;
   groupTitle: string;
@@ -47,7 +47,7 @@ const SimulationListPage = () => {
             max_iterations: run.max_iterations,
             is_finished: run.is_finished,
             target: run.target,
-            situation: run.situation,
+            situation: run.situation === 0 ? "UsdcDonation" : "NftMint",
             privateInfo: run.privateInfo,
             groupTitle: run.groupTitle,
             groupImage: run.groupImage,
