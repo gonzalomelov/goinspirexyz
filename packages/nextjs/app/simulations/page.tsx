@@ -14,6 +14,7 @@ interface AgentRunInfo {
   targetFirstName: string;
   targetFriend: string;
   situation: number;
+  situationAddress: string;
   publicInfo: string;
   privateInfo: string;
   groupTitle: string;
@@ -48,6 +49,7 @@ const SimulationListPage = () => {
             is_finished: run.is_finished,
             target: run.target,
             situation: run.situation === 0 ? "UsdcDonation" : "NftMint",
+            situationAddress: run.situationAddress,
             privateInfo: run.privateInfo,
             groupTitle: run.groupTitle,
             groupImage: run.groupImage,

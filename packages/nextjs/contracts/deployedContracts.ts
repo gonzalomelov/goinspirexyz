@@ -32,7 +32,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      address: "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
       abi: [
         {
           inputs: [
@@ -169,6 +169,11 @@ const deployedContracts = {
               type: "uint8",
             },
             {
+              internalType: "address",
+              name: "situationAddress",
+              type: "address",
+            },
+            {
               internalType: "string",
               name: "publicInfo",
               type: "string",
@@ -266,6 +271,11 @@ const deployedContracts = {
                   internalType: "enum LeadAgent.Situation",
                   name: "situation",
                   type: "uint8",
+                },
+                {
+                  internalType: "address",
+                  name: "situationAddress",
+                  type: "address",
                 },
                 {
                   internalType: "string",
@@ -553,6 +563,11 @@ const deployedContracts = {
               internalType: "enum LeadAgent.Situation",
               name: "situation",
               type: "uint8",
+            },
+            {
+              internalType: "address",
+              name: "situationAddress",
+              type: "address",
             },
             {
               internalType: "string",
@@ -1279,7 +1294,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LeadAgent: {
-      address: "0x757316e28782Dd74414FE0affF55c80177aD3B61",
+      address: "0xD5Aebe088c5ba05D1094A3888D9b0474c087fD51",
       abi: [
         {
           inputs: [
@@ -1416,6 +1431,11 @@ const deployedContracts = {
               type: "uint8",
             },
             {
+              internalType: "address",
+              name: "situationAddress",
+              type: "address",
+            },
+            {
               internalType: "string",
               name: "publicInfo",
               type: "string",
@@ -1513,6 +1533,11 @@ const deployedContracts = {
                   internalType: "enum LeadAgent.Situation",
                   name: "situation",
                   type: "uint8",
+                },
+                {
+                  internalType: "address",
+                  name: "situationAddress",
+                  type: "address",
                 },
                 {
                   internalType: "string",
@@ -1800,6 +1825,11 @@ const deployedContracts = {
               internalType: "enum LeadAgent.Situation",
               name: "situation",
               type: "uint8",
+            },
+            {
+              internalType: "address",
+              name: "situationAddress",
+              type: "address",
             },
             {
               internalType: "string",

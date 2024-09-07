@@ -9,6 +9,7 @@ const simulations: {
   targetFirstName: string;
   targetFriend: string;
   situation: string;
+  situationAddress: string;
   privateInfo: string;
   groupTitle: string;
   groupImage: string;
@@ -17,12 +18,21 @@ const simulations: {
 }[] = [];
 
 export async function POST(request: Request) {
-  const { target, targetFirstName, targetFriend, situation, privateInfo, groupTitle, groupImage, creator } =
-    await request.json();
+  const {
+    target,
+    targetFirstName,
+    targetFriend,
+    situation,
+    situationAddress,
+    privateInfo,
+    groupTitle,
+    groupImage,
+    creator,
+  } = await request.json();
 
   try {
     // Create the chat in Galadriel
-    // TODO: Move from group-chat to nextjs
+    // TODO: Deploy
     const response = await fetch("http://localhost:3001/group-chats", {
       method: "POST",
       headers: {
@@ -33,6 +43,7 @@ export async function POST(request: Request) {
         targetFirstName,
         targetFriend,
         situation,
+        situationAddress,
         privateInfo,
         groupTitle,
         groupImage,
@@ -59,6 +70,7 @@ export async function POST(request: Request) {
       targetFirstName,
       targetFriend,
       situation,
+      situationAddress,
       privateInfo,
       groupTitle,
       groupImage,
@@ -89,8 +101,18 @@ export async function POST(request: Request) {
 }
 
 export async function PUT(request: Request) {
-  const { id, target, targetFirstName, targetFriend, situation, privateInfo, groupTitle, groupImage, isCompleted } =
-    await request.json();
+  const {
+    id,
+    target,
+    targetFirstName,
+    targetFriend,
+    situation,
+    situationAddress,
+    privateInfo,
+    groupTitle,
+    groupImage,
+    isCompleted,
+  } = await request.json();
   const simulationIndex = simulations.findIndex(simulation => simulation.id === id);
   if (simulationIndex === -1) {
     return NextResponse.json({ error: "Simulation not found" }, { status: 404 });
@@ -101,6 +123,7 @@ export async function PUT(request: Request) {
     targetFirstName,
     targetFriend,
     situation,
+    situationAddress,
     privateInfo,
     groupTitle,
     groupImage,

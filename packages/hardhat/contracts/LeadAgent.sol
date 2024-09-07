@@ -30,6 +30,7 @@ contract LeadAgent {
         string targetFirstName;
         string targetFriend;
         Situation situation;
+        address situationAddress;
         string publicInfo;
         string privateInfo;
         string groupTitle;
@@ -48,6 +49,7 @@ contract LeadAgent {
         string targetFirstName;
         string targetFriend;
         Situation situation;
+        address situationAddress;
         string publicInfo;
         string privateInfo;
         string groupTitle;
@@ -134,6 +136,7 @@ contract LeadAgent {
         string memory targetFirstName,
         string memory targetFriend,
         Situation situation,
+        address situationAddress,
         string memory publicInfo,
         string memory privateInfo,
         string memory groupTitle,
@@ -149,6 +152,7 @@ contract LeadAgent {
         run.targetFirstName = targetFirstName;
         run.targetFriend = targetFriend;
         run.situation = situation;
+        run.situationAddress = situationAddress;
         run.publicInfo = publicInfo;
         run.privateInfo = privateInfo;
         run.groupTitle = groupTitle;
@@ -327,6 +331,7 @@ contract LeadAgent {
                     targetFirstName: agentRuns[i].targetFirstName,
                     targetFriend: agentRuns[i].targetFriend,
                     situation: agentRuns[i].situation,
+                    situationAddress: agentRuns[i].situationAddress,
                     publicInfo: agentRuns[i].publicInfo,
                     privateInfo: agentRuns[i].privateInfo,
                     groupTitle: agentRuns[i].groupTitle,

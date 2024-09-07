@@ -19,6 +19,7 @@ const examples = {
     targetFirstName: "Bob",
     targetFriend: "Jack",
     situation: "UsdcDonation", // "Donate to charity by sending 10 usdc to @charity.eth in a transaction directly within this chat using /send 10 usdc @charity.eth",
+    situationAddress: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
     privateInfo: "He usually donates to charity but using GoFundMe",
     groupTitle: "Give Love ❤️",
     groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmWU41NsdaEQ8BGdgkMD3ktCAjbeKfyBsnUxuHFkTRDX1k",
@@ -28,6 +29,7 @@ const examples = {
     targetFirstName: "Bob",
     targetFriend: "Jack",
     situation: "NftMint", // "Mint a World of Women NFT to give to charity and help women in need by minting directly within this chat using /mint 0x73a333cb82862d4f66f0154229755b184fb4f5b0 1",
+    situationAddress: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
     privateInfo: "",
     groupTitle: "All Things NFT ⛓️",
     groupImage: "https://lime-odd-deer-974.mypinata.cloud/ipfs/QmWU41NsdaEQ8BGdgkMD3ktCAjbeKfyBsnUxuHFkTRDX1k",
@@ -41,6 +43,7 @@ const CreateSimulationPage = () => {
   const [situation, setSituation] = useState<"UsdcDonation" | "NftMint">(
     examples.example1.situation as "UsdcDonation" | "NftMint",
   );
+  const [situationAddress, setSituationAddress] = useState(examples.example1.situationAddress);
   const [privateInfo, setPrivateInfo] = useState(examples.example1.privateInfo);
   const [groupTitle, setGroupTitle] = useState(examples.example1.groupTitle);
   const [groupImage, setGroupImage] = useState(examples.example1.groupImage);
@@ -59,6 +62,7 @@ const CreateSimulationPage = () => {
         targetFirstName,
         targetFriend,
         situation,
+        situationAddress,
         privateInfo,
         groupTitle,
         groupImage,
@@ -118,6 +122,16 @@ const CreateSimulationPage = () => {
             <option value="UsdcDonation">Donate USDC</option>
             <option value="NftMint">Mint Charity NFT</option>
           </select>
+        </div>
+        <div>
+          <label className="block mb-2 text-sm font-medium text-gray-700">Situation Address</label>
+          <input
+            type="text"
+            value={situationAddress}
+            onChange={e => setSituationAddress(e.target.value)}
+            placeholder="ETH address to verify"
+            className="input input-bordered w-full"
+          />
         </div>
         <div>
           <label className="block mb-2 text-sm font-medium text-gray-700">
