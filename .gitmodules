@@ -4,3 +4,6 @@
 [submodule "submodules/landing"]
 	path = submodules/landing
 	url = git@github.com:gonzalomelov/goinspirexyz-landing.git
+[submodule "submodules/proof-of-inspiration-sign"]
+	path = submodules/proof-of-inspiration-sign
+	url = git@github.com:gonzalomelov/goinspirexyz-sign.git
