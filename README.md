@@ -3,7 +3,7 @@
 <h4 align="center">
   <a href="https://goinspire.xyz">Website</a> |
   <a href="https://github.com/gonzalomelov/goinspirexyz">GitHub</a> |
-  <a href="https://ethglobal.com/showcase/gosolve-xyz-yzvyj">ETHGlobal Showcase</a>
+  <a href="https://ethglobal.com/showcase/goinspire-xyz-yzvyj">ETHGlobal Showcase</a>
 </h4>
 
 🚀 goinspire.xyz is an innovative platform where AI-driven inspirational experiences in group chats encourage people to take positive actions. Inspired by the Argentine TV series "Los Simuladores", we bring the concept of social engineering for positive outcomes to the blockchain.
@@ -13,7 +13,8 @@
 - 🤖 **AI-Driven Social Experiences**: Multiple AI agents manage group chat discussions, mimicking different specialists.
 - 🎯 **Personalized Strategies**: Utilizes public and private data for tailored interactions.
 - 🔄 **Dynamic Interaction**: Agents update their responses based on real-time data.
-- 🔒 **Privacy Focused**: Integrated with Lit Protocol for secure conversations.
+- 🏆 **Leaderboard**: Showcases users with the most Proofs of Inspiration.
+- 📜 **Proof of Inspiration**: Onchain attestations for users who have inspired others.
 
 ## 🛠 Tech Stack
 
