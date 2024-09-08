@@ -1,5 +1,5 @@
+import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Address } from "~~/components/scaffold-eth";
 import { Simulation } from "~~/types";
 
@@ -9,6 +9,33 @@ const simulationTypeMap = {
 };
 
 export const SimulationItem = ({ simulation }: { simulation: Simulation }) => {
+  const [isVerifying, setIsVerifying] = useState(false);
+
+  const verifyAction = async () => {
+    setIsVerifying(true);
+    try {
+      const response = await fetch(`/api/simulations/${simulation.id}/verify`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ targetAddress: simulation.target }),
+      });
+
+      if (response.ok) {
+        // Handle successful verification
+        console.log("Action verified successfully");
+      } else {
+        // Handle verification failure
+        console.error("Verification failed");
+      }
+    } catch (error) {
+      console.error("Error during verification:", error);
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
   return (
     <tr>
       <td>{simulation.id}</td>
@@ -30,9 +57,13 @@ export const SimulationItem = ({ simulation }: { simulation: Simulation }) => {
         {simulation.responsesCount} / {simulation.max_iterations}
       </td>
       <td>
-        <Link href={`/simulations/${simulation.id}`} className="btn btn-sm btn-primary">
-          View
-        </Link>
+        <button
+          onClick={verifyAction}
+          disabled={isVerifying}
+          className={`btn btn-sm ${isVerifying ? "btn-disabled" : "btn-primary"}`}
+        >
+          {isVerifying ? "Verifying..." : "Verify Action"}
+        </button>
       </td>
     </tr>
   );
